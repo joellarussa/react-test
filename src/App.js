@@ -1,22 +1,27 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import ProjectsSection from './components/ProjectsSection';
-import ContactForm from './components/ContactForm';
-import './index.css';
+import { ChakraProvider } from "@chakra-ui/react";
+import Header from "./components/Header";
+import LandingSection from "./components/LandingSection";
+import ProjectsSection from "./components/ProjectsSection";
+import ContactMeSection from "./components/ContactMeSection";
+import Footer from "./components/Footer";
+import { AlertProvider } from "./context/alertContext";
+import Alert from "./components/Alert";
 
 function App() {
-    return (
-        <div>
-            <Navbar />
-            <HeroSection />
-            <ProjectsSection />
-            <ContactForm />
-            <footer style={{ backgroundColor: '#000', color: 'white', textAlign: 'center', padding: '1rem' }}>
-                <p>Joel™ 2024</p>
-            </footer>
-        </div>
-    );
+  return (
+    <ChakraProvider>
+      <AlertProvider>
+        <main>
+          <Header />
+          <LandingSection />
+          <ProjectsSection />
+          <ContactMeSection />
+          <Footer />
+          <Alert />
+        </main>
+      </AlertProvider>
+    </ChakraProvider>
+  );
 }
 
 export default App;
